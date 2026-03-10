@@ -141,5 +141,93 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff; line-hei
     .content-grid { grid-template-columns: 1fr; }
     .hero-area h1 { font-size: 1.8rem; }
 }
+/* --- CONTENT PREVIEW (TOC) STYLING --- */
+.toc-widget {
+    background-color: #f3f6f9; /* Original light gray background */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+}
+
+.toc-list {
+    padding-left: 20px; /* Space for numbers */
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 12px;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.toc-list li a {
+    text-decoration: none;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+.toc-list li a:hover {
+    color: var(--blue);
+    padding-left: 5px; /* UI/UX Improvement: subtle shift on hover */
+}
+
+/* --- FOOTER STYLING --- */
+.site-footer {
+    background-color: #010332; /* Navy background */
+    color: #ffffff;
+    padding: 60px 0 40px 0; /* Plenty of "empty space" as requested */
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* For mobile responsiveness */
+}
+
+.footer-copyright h2, .footer-copyright p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 0.6;
+    text-decoration: underline;
+}
+
+/* Mobile Footer Adjustment */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        gap: 15px;
+    }
+}
 
 
