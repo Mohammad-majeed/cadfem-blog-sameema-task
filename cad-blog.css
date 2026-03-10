@@ -106,6 +106,60 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff; line-hei
 .related-info a:hover {
     color: var(--blue);
 }
+/* Related Blogs Heading with Blue Underline */
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 20px 0;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--blue); /* Thicker line matching original site */
+    display: inline-block;
+}
+
+/* Individual Post Container */
+.related-post {
+    margin-bottom: 25px;
+    width: 100%;
+    display: block; /* Vertical layout matching your screenshot */
+}
+
+/* IMAGE FIX: Restricts image to widget width */
+.related-thumb {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.related-thumb img {
+    width: 100%;      /* Forces image to stay inside the sidebar width */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;
+    transition: transform 0.4s ease; /* UI/UX Improvement: Hover effect */
+}
+
+.related-thumb:hover img {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* Related Blog Title Styling */
+.related-info a {
+    text-decoration: none;
+    color: #0F73FF; /* Action Blue for links */
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.3s;
+}
+
+.related-info a:hover {
+    text-decoration: underline;
+    color: var(--navy);
+}
+
 
 
 
