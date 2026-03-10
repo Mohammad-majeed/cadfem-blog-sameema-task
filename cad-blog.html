@@ -18,10 +18,10 @@
                 <a href="https://blog.cadfem.ai/"><img src="https://blog.cadfem.ai/wp-content/uploads/2024/11/CADFEM_Logo_blue_sRGB_M-1024x341.png" alt="CADFEM Logo"></a>
             </div>
             <div class="header-socials">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/cadfem-india/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/cadfem.in" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/cadfem.india/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@CADFEMIndia" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </header>
@@ -33,97 +33,142 @@
             <div class="post-meta">
                 <span><i class="fas fa-user"></i> Mangesh Shahji Gavade</span>
                 <span><i class="fas fa-stopwatch"></i> 06:30 MINS</span>
-                <span><i class="far fa-calendar-alt"></i> Jan 23, 2026</span>
+                <span><i class="far fa-calendar-alt"></i> January 23, 2026</span>
             </div>
         </section>
 
         <div class="content-grid">
-            <!-- MAIN ARTICLE -->
             <article class="main-article">
                 <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/FBU_Ceiling-Fan-Part-2-Banner-1024x416.jpg" class="banner-img">
                 
-                <p>In <em>Part 1</em> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction...</p>
+                <p>In <strong>Part 1</strong> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction and IS 374-compliant performance assessment for ceiling fans — helping engineers optimize designs for better energy efficiency and air delivery without costly physical prototyping.</p>
+                <p>In <em>Part 2</em> below, we dive deeper into fluid-structure interactions, blade optimization, acoustics, and simulation automation to complete the digital design workflow.</p>
 
-                <h3 id="fsi">Fluid–Structure Interaction (FSI)</h3>
-                <p>Under fluid loading, blades deform — changing their shape and, consequently, the airflow patterns they generate...</p>
+                <h3 id="fsi">Fluid–Structure Interaction (FSI) Analysis of Ceiling Fan Blades</h3>
+                <p>During operation, ceiling fan blades are not only subjected to aerodynamic loads but also to <b>self-weight and centrifugal forces.</b> If blade design lacks structural capacity, these loads can cause <b>undesired deformation or failure.</b></p>
+                <p>Under fluid loading, blades deform — changing their shape and, consequently, the airflow patterns they generate which directly impacts <strong>ceiling fan airflow simulation</strong> accuracy. This creates a coupled behavior where the <b>modified flow affects further blade deformation,</b> making it critical to capture these interactions early in the design cycle.</p>
+
+                <h3 id="fsi-types">One-Way vs Two-Way FSI</h3>
+                <ul>
+                    <li><strong>1-Way FSI:</strong> Transfers pressure data from the fluid solver to the structural solver to evaluate deformation due to fluid loads. However, it does not capture how the newly deformed shape alters the airflow characteristics.</li>
+                    <li><strong>2-Way FSI (System Coupling):</strong> Through Ansys System Coupling, <b>Ansys Fluent and Ansys Mechanical exchange data</b> iteratively. This approach predicts blade deformation under equilibrium conditions that include fluid pressure, self-weight, and centrifugal forces.</li>
+                </ul>
 
                 <div class="media-container">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125005-1024x380.png" class="fig-img">
-                    <p class="caption">Fig 1: Ansys Workbench platform for System coupling</p>
+                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125005-1024x380.png">
+                    <p class="caption">Fig 1: Ansys Workbench platform for System coupling of fluent & Mechanical Solver</p>
                 </div>
 
                 <div class="media-container">
-                    <video muted autoplay loop playsinline class="sim-video">
-                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/struc_croped.mp4" type="video/mp4">
-                    </video>
-                    <p class="caption">Video 1: Results of blade deflection</p>
+                    <video muted autoplay loop playsinline><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/struc_croped.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 1: Results of blade deflection calculated from Mechanical Solver</p>
                 </div>
 
-                <h3>Shape Morphing</h3>
-                <p>A gradient-based solver computes the sensitivity of performance metrics relative to geometric changes...</p>
+                <h3 id="gradient">Shape Morphing Using Gradient-Based Optimization</h3>
+                <p>Designers seek blade profiles that <b>maximize airflow and efficiency while maintaining structural integrity.</b> Traditional parametric optimization (e.g., DOE with Ansys optiSLang) can require significant computational resources.</p>
+                
+                <p>A <b>gradient-based solver,</b> typically using an <b>adjoint method,</b> computes the sensitivity of performance metrics (such as torque or drag) relative to geometric changes.</p>
+
+                <div class="media-grid">
+                    <div class="media-container">
+                        <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-22-163600.png">
+                        <p class="caption">Figure 2: Shape morphing : baseline geometry in grey & morphed geometry in green</p>
+                    </div>
+                    <div class="media-container">
+                        <video muted autoplay loop playsinline><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_fan_surf1.mp4" type="video/mp4"></video>
+                        <p class="caption">Video 2: Shape morphing</p>
+                    </div>
+                </div>
 
                 <div class="media-container">
-                    <video muted autoplay loop playsinline class="sim-video">
-                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_fan_surf1.mp4" type="video/mp4">
-                    </video>
-                    <p class="caption">Video 2: Shape morphing animation</p>
+                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125057.png">
+                    <p class="caption">Fig 3: Graph indicating the decrease in torque for every new optimized shape</p>
                 </div>
+
+                <h3 id="acoustics">Acoustics analysis of Ceiling fan</h3>
+                <p>Acoustics has become a key differentiator in modern consumer appliances. Fan noise can originate from multiple sources, including air cutting by blades, vibration of fan components, and electric motor excitation.</p>
+                
+                <h4>1. Tonal and Broadband Noise</h4>
+                <p>Fan noise can be classified as tonal or broadband. Ceiling fans operate at relatively low rotational speeds, which means most of their broadband noise falls within the human audible range of 20 Hz to 20 kHz.</p>
+
+                <div class="media-container">
+                    <video muted autoplay loop playsinline><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/vel_scale_resolving.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 3: Animation of Scale Resolving simulation indicating flow dynamics</p>
+                </div>
+
+                <h3 id="outcomes">Outcomes of Aeroacoustics Analysis:</h3>
+                <ul>
+                    <li>Pressure fluctuations processed via Fast Fourier Transformation (FFT).</li>
+                    <li>Sound pressure level (SPL) dB v/s frequency identification.</li>
+                    <li>A-weighted SPL (dBA) v/s octave bands.</li>
+                </ul>
+
+                <div class="media-grid">
+                    <div class="media-container"><img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-22-163704.png"><p class="caption">Fig 4: SPL v/s frequency</p></div>
+                    <div class="media-container"><img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-22-163712.png"><p class="caption">Fig 5: SPL A-weighted dB v/s Octave band</p></div>
+                </div>
+
+                <div class="media-container" style="background:#eee; padding:20px;">
+                    <p style="text-align:center; font-weight:bold;">Simulation Audio Perception:</p>
+                    <audio controls style="width:100%"><source src="https://blog.cadfem.ai/wp-content/uploads/2026/02/ASound_mic_1_CAA_receiver_data.wav" type="audio/wav"></audio>
+                </div>
+
+                <div class="media-container">
+                    <video muted autoplay loop playsinline><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_dp_dt_1-1.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 4: Acoustic Wave Propagation indicated by dp/dt contours</p>
+                </div>
+
+                <h3 id="automation">IS 374 Air Delivery Testing Automation Using PyFluent</h3>
+                <p>Using PyFluent, the entire IS 374 simulation workflow can be automated—from model setup and execution to post-processing—ensuring consistency while significantly reducing overall analysis time.</p>
+
+                <div class="media-container">
+                    <video muted autoplay loop playsinline><source src="https://blog.cadfem.ai/wp-content/uploads/2026/02/CADFEM-India_s-Video-Jan-29-2026.mp4#t=44,158" type="video/mp4"></video>
+                    <p class="caption">Video 5: PyFluent Automation of Ceiling fan IS374 test video</p>
+                </div>
+
+                <h3 id="conclusion">Conclusion</h3>
+                <p>Designing an efficient and reliable ceiling fan requires more than optimizing airflow alone. By integrating fluid–structure interaction, blade optimization, aeroacoustics, and simulation automation, engineers can realistically evaluate blade deformation and reduce reliance on physical prototyping.</p>
             </article>
 
-            <!-- SIDEBAR -->
             <aside class="sidebar">
                 <div class="sticky-sidebar">
                     <div class="widget">
-                        <h4>Content Preview</h4>
-                        <ul class="toc-links">
-                            <li><a href="#fsi">1. Fluid-Structure Interaction</a></li>
-                            <li><a href="#">2. Shape Morphing</a></li>
-                            <li><a href="#">3. Acoustics Analysis</a></li>
-                        </ul>
+                        <h4 class="widget-title">Content Preview</h4>
+                        <ol class="toc-list">
+                            <li><a href="#fsi">Fluid-Structure Interaction</a></li>
+                            <li><a href="#fsi-types">One-Way vs Two-Way FSI</a></li>
+                            <li><a href="#gradient">Shape Morphing</a></li>
+                            <li><a href="#acoustics">Acoustics Analysis</a></li>
+                            <li><a href="#automation">PyFluent Automation</a></li>
+                            <li><a href="#conclusion">Conclusion</a></li>
+                        </ol>
                     </div>
                     <div class="widget">
-                        <h4>Related Blogs</h4>
+                        <h4 class="widget-title">Related Blogs</h4>
                         <div class="related-post">
-                <a href="https://blog.cadfem.ai/how-to-reduce-drone-noise-with-ansys-fluent/" class="related-thumb">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/03/Fluent-Q1_-Indonesia_Thumbnail-300x158.jpg" alt="Drone Noise">
-                </a>
-                <div class="related-info">
-                    <a href="https://blog.cadfem.ai/how-to-reduce-drone-noise-with-ansys-fluent/">How to Reduce Drone Noise with Ansys Fluent</a>
+                            <img src="https://blog.cadfem.ai/wp-content/uploads/2026/03/Fluent-Q1_-Indonesia_Thumbnail-300x158.jpg">
+                            <p><a href="#">How to Reduce Drone Noise</a></p>
+                        </div>
+                        <div class="related-post">
+                            <img src="https://blog.cadfem.ai/wp-content/uploads/2025/10/BLOG-Q4_Artboard-2-copy-57-1-300x158.jpg">
+                            <p><a href="#">Inside Modern Appliances: CFD</a></p>
+                        </div>
+                        <div class="view-all"><a href="#">View All ➜</a></div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="related-post">
-                <a href="https://blog.cadfem.ai/cfd-simulation-for-appliances/" class="related-thumb">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2025/10/BLOG-Q4_Artboard-2-copy-57-1-300x158.jpg" alt="Appliances">
-                </a>
-                <div class="related-info">
-                    <a href="https://blog.cadfem.ai/cfd-simulation-for-appliances/">Inside Modern Appliances: How CFD Powers Performance</a>
-                </div>
-            </div>
-
-            <div class="related-post">
-                <a href="https://blog.cadfem.ai/bulk-material-handling/" class="related-thumb">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2025/07/BLOG-Banners-Q3-2025-09-300x157.jpg" alt="Bulk Material">
-                </a>
-                <div class="related-info">
-                    <a href="https://blog.cadfem.ai/bulk-material-handling/">Simplifying Bulk Material Handling During Monsoon</a>
-                </div>
-            </div>
-
-            <div class="view-all-box">
-                <a href="https://blog.cadfem.ai/?_product_collection_drop=fbu" class="view-all-link">View All ➜</a>
-            </div>
-        </div>
-    </div>
-</aside>
+            </aside>
         </div>
     </div>
 
     <footer class="site-footer">
-        <p>© Copyright 2026 by CADFEM APAC</p>
+        <div class="footer-container">
+            <p>© Copyright 2026 by CADFEM APAC</p>
+            <div class="footer-links">
+                <a href="#">Legal Notices</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+            </div>
+        </div>
     </footer>
 
     <script src="cad-blog.js"></script>
 </body>
 </html>
-
