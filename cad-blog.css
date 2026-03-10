@@ -53,84 +53,87 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff; line-hei
 
 .caption { font-size: 0.8rem; text-align: center; color: #666; margin-top: 10px; font-style: italic; }
 
-/* Sidebar General Widget Styling */
+/* Sidebar Container Fix */
+.sidebar {
+    flex-shrink: 0;
+    width: 300px; /* Fixed width for interview stability */
+}
+
+/* Sidebar Widget - The white box */
 .widget {
     background: #fff;
-    border: 1px solid #e0e0e0;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 25px;
+    box-sizing: border-box; /* IMPORTANT: Includes padding inside the width */
+    width: 100%;
+    overflow: hidden; /* Prevents any accidental overflow */
 }
 
+/* Related Blogs Heading with Blue Underline */
 .widget-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--navy);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--blue);
+    margin: 0 0 20px 0;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--blue); /* Thicker line matching original site */
     display: inline-block;
 }
 
-/* Related Blogs List Styling */
+/* Individual Post Container */
 .related-post {
-    display: flex;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
-    align-items: flex-start;
+    margin-bottom: 25px;
+    width: 100%;
+    display: block; /* Vertical layout matching your screenshot */
 }
 
-.related-post:last-child {
-    border-bottom: none;
-}
-
+/* IMAGE FIX: Restricts image to widget width */
 .related-thumb {
-    flex-shrink: 0;
-    width: 80px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 12px;
 }
 
 .related-thumb img {
-    width: 100%;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
+    width: 100%;      /* Forces image to stay inside the sidebar width */
+    height: auto;     /* Maintains aspect ratio */
     display: block;
+    transition: transform 0.4s ease; /* UI/UX Improvement: Hover effect */
 }
 
+.related-thumb:hover img {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* Related Blog Title Styling */
 .related-info a {
     text-decoration: none;
-    color: var(--navy);
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.3;
+    color: #0F73FF; /* Action Blue for links */
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
     display: block;
     transition: color 0.3s;
 }
 
 .related-info a:hover {
-    color: var(--blue);
+    text-decoration: underline;
+    color: var(--navy);
 }
 
-/* View All Link */
+/* View All Link at the bottom */
 .view-all-box {
-    margin-top: 15px;
-    text-align: left;
+    margin-top: 10px;
 }
 
 .view-all-link {
-    color: var(--blue);
+    color: #0F73FF;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 0.9rem;
-}
-
-.view-all-link:hover {
-    text-decoration: underline;
-}
-
-/* Sticky Sidebar Fix */
-.sticky-sidebar {
-    position: sticky;
-    top: 20px;
 }
 
 /* Mobile View */
@@ -138,4 +141,5 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background: #fff; line-hei
     .content-grid { grid-template-columns: 1fr; }
     .hero-area h1 { font-size: 1.8rem; }
 }
+
 
