@@ -4,37 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Guide to Ceiling Fan Airflow Simulation | CADFEM Blog</title>
-    
-    <!-- FIXED: Link now matches your filename -->
     <link rel="stylesheet" href="cad-blog.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- UI IMPROVEMENT: Reading Progress Bar -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
 
     <header class="site-header">
         <div class="top-bar">
             <div class="logo">
-                <img src="https://blog.cadfem.ai/wp-content/uploads/2024/11/CADFEM_Logo_blue_sRGB_M-1024x341.png" alt="CADFEM Logo">
+                <a href="https://blog.cadfem.ai/"><img src="https://blog.cadfem.ai/wp-content/uploads/2024/11/CADFEM_Logo_blue_sRGB_M-1024x341.png" alt="CADFEM Logo"></a>
             </div>
             <div class="header-socials">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/cadfem-india/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/cadfem.in" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/cadfem.india/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@CADFEMIndia" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </header>
 
     <main class="container">
         <div class="hero">
-            <nav class="breadcrumbs">Home | Article</nav>
+            <nav class="breadcrumbs"><a href="#">Home</a> | <a href="#">Article</a></nav>
             <h1>Engineering Efficient Airflow with Simulation: Structural, Optimization & Acoustic Insights for Ceiling Fan Design</h1>
             <div class="post-meta">
                 <span><i class="fas fa-user"></i> Mangesh Shahji Gavade</span>
@@ -47,72 +41,80 @@
             <article class="content">
                 <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/FBU_Ceiling-Fan-Part-2-Banner-1024x416.jpg" class="banner-img">
                 
-                <p>In <strong>Part 1</strong> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction and IS 374-compliant performance assessment for ceiling fans — helping engineers optimize designs for better energy efficiency and air delivery without costly physical prototyping.</p>
-                
+                <p>In <strong><a href="https://blog.cadfem.ai/ceiling-fan-design-by-ansys-fluent-simulation/" target="_blank">Part 1</a></strong> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction and IS 374-compliant performance assessment for ceiling fans — helping engineers optimize designs for better energy efficiency and air delivery without costly physical prototyping.</p>
+                <br>
                 <p>In <em>Part 2</em> below, we dive deeper into fluid-structure interactions, blade optimization, acoustics, and simulation automation to complete the digital design workflow.</p>
 
                 <h3 id="fsi">Fluid–Structure Interaction (FSI) Analysis of Ceiling Fan Blades</h3>
                 <p>During operation, ceiling fan blades are not only subjected to aerodynamic loads but also to <strong>self-weight and centrifugal forces.</strong> If blade design lacks structural capacity, these loads can cause <strong>undesired deformation or failure.</strong></p>
-                
                 <p>Under fluid loading, blades deform — changing their shape and, consequently, the airflow patterns they generate which directly impacts ceiling fan airflow simulation accuracy. This creates a coupled behavior where the <strong>modified flow affects further blade deformation,</strong> making it critical to capture these interactions early in the design cycle.</p>
 
                 <h3 id="fsi-types">One-Way vs Two-Way FSI</h3>
                 <ul>
-                    <li><strong>1-Way FSI:</strong> Transfers pressure data from the fluid solver to the structural solver to evaluate deformation due to fluid loads. However, it does not capture how the newly deformed shape alters the airflow characteristics.</li>
-                    <li><strong>2-Way FSI (System Coupling):</strong> Through Ansys System Coupling, <strong>Ansys Fluent and Ansys Mechanical exchange data</strong> iteratively. This approach predicts blade deformation under equilibrium conditions that include fluid pressure, self-weight, and centrifugal forces — offering a more realistic simulation of operational behavior.</li>
+                    <li><strong>1-Way FSI:</strong> Transfers pressure data from the fluid solver to the structural solver to evaluate deformation due to fluid loads.</li>
+                    <li><strong>2-Way FSI (System Coupling):</strong> Predicts blade deformation under equilibrium conditions.</li>
                 </ul>
 
-                <h3 id="gradient">Gradient-Based Optimization</h3>
-                <p>A <strong>gradient-based solver,</strong> typically using an <strong>adjoint method,</strong> computes the sensitivity of performance metrics (such as torque or drag) relative to geometric changes. This identifies the regions of the blade most sensitive to performance objectives, such as reducing torque or improving downward flow.</p>
+                <div class="figure-box">
+                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125005-1024x380.png" alt="Ansys Workbench">
+                    <p class="caption">Fig 1: Ansys Workbench platform for System coupling of fluent & Mechanical Solver</p>
+                </div>
+
+                <div class="video-box">
+                    <video autoplay loop muted controls><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/struc_croped.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 1: Results of blade deflection calculated from Mechanical Solver</p>
+                </div>
+
+                <h3 id="shape-morphing">Shape Morphing Using Gradient-Based Optimization</h3>
+                <p>Designers seek blade profiles that maximize airflow and efficiency while maintaining structural integrity. Gradient-based optimization computes sensitivity relative to geometric changes.</p>
+
+                <div class="video-box">
+                    <video autoplay loop muted controls><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_fan_surf1.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 2: Shape morphing animation</p>
+                </div>
 
                 <h3 id="acoustics">Acoustics analysis of Ceiling fan</h3>
-                <p>Acoustics has become a key differentiator in modern consumer appliances. Ceiling fans are used for long durations, and prolonged exposure to unwanted noise can be uncomfortable for users.</p>
-                
-                <p>From a physics perspective, noise is an acoustic pressure wave that propagates through air and is perceived by the human ear. Fan noise can originate from multiple sources, including air cutting by blades, vibration of fan components, and electric motor excitation.</p>
+                <p>Acoustics has become a key differentiator in modern consumer appliances. Prolonged exposure to unwanted noise can be uncomfortable for users.</p>
+
+                <div class="video-box">
+                    <video autoplay loop muted controls><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/vel_scale_resolving.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 3: Animation of Scale Resolving simulation indicating flow dynamics</p>
+                </div>
+
+                <div class="video-box">
+                    <video autoplay loop muted controls><source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_dp_dt_1-1.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 4: Acoustic Wave Propagation indicated by dp/dt contours</p>
+                </div>
 
                 <h3 id="is374">IS 374 Air Delivery Testing Automation Using PyFluent</h3>
-                <p>As simulation workflows grow more complex, automation becomes essential for productivity. IS 374 air delivery testing must be conducted for multiple blade designs, making manual setup repetitive and time-consuming. Using PyFluent, the entire IS 374 simulation workflow can be automated.</p>
+                <p>Using PyFluent, the entire IS 374 simulation workflow can be automated—from model setup and execution to post-processing.</p>
+
+                <div class="video-box">
+                    <video autoplay loop muted controls><source src="https://blog.cadfem.ai/wp-content/uploads/2026/02/CADFEM-India_s-Video-Jan-29-2026.mp4" type="video/mp4"></video>
+                    <p class="caption">Video 5: PyFluent Automation of Ceiling fan IS374 test video</p>
+                </div>
 
                 <h3 id="conclusion">Conclusion</h3>
-                <p>Designing an efficient and reliable ceiling fan requires more than optimizing airflow alone. By integrating fluid–structure interaction, blade optimization, aeroacoustics, and simulation automation, engineers can realistically evaluate blade deformation and improve performance.</p>
+                <p>Designing an efficient and reliable ceiling fan requires more than optimizing airflow alone. Advanced Ansys simulation techniques enable a holistic, physics-based approach to ceiling fan design.</p>
             </article>
 
             <aside class="sidebar">
                 <div class="toc-widget">
                     <h4>Content Preview</h4>
                     <ul id="toc-list">
-                        <li><a href="#fsi">1. Fluid–Structure Interaction</a></li>
+                        <li><a href="#fsi">1. FSI Analysis</a></li>
                         <li><a href="#fsi-types">2. One-Way vs Two-Way FSI</a></li>
-                        <li><a href="#gradient">3. Gradient-Based Optimization</a></li>
+                        <li><a href="#shape-morphing">3. Shape Morphing</a></li>
                         <li><a href="#acoustics">4. Acoustics Analysis</a></li>
                         <li><a href="#is374">5. IS 374 Automation</a></li>
                         <li><a href="#conclusion">6. Conclusion</a></li>
                     </ul>
                 </div>
-
-                <div class="related-widget">
-                    <h4>Related Blogs</h4>
-                    <div class="related-item">
-                        <img src="https://via.placeholder.com/80x50" alt="Drone Noise">
-                        <p>How to Reduce Drone Noise with Ansys Fluent</p>
-                    </div>
-                    <div class="related-item">
-                        <img src="https://via.placeholder.com/80x50" alt="Appliances">
-                        <p>CFD Simulation for Modern Appliances</p>
-                    </div>
-                </div>
             </aside>
         </div>
     </main>
-    
-    <footer class="site-footer">
-        <p>© Copyright 2026 by CADFEM APAC</p>
-        <div class="footer-links">
-            <a href="#">Legal Notices</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
-        </div>
-    </footer>
 
-    <!-- FIXED: Added Javascript link matching your filename -->
+    <footer class="site-footer"><p>© Copyright 2026 by CADFEM APAC</p></footer>
     <script src="cad-blog.js"></script>
 </body>
 </html>
