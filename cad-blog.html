@@ -13,119 +13,85 @@
     <div id="progress-container"><div id="progress-bar"></div></div>
 
     <header class="site-header">
-        <div class="top-bar">
+        <div class="header-inner">
             <div class="logo">
                 <a href="https://blog.cadfem.ai/"><img src="https://blog.cadfem.ai/wp-content/uploads/2024/11/CADFEM_Logo_blue_sRGB_M-1024x341.png" alt="CADFEM Logo"></a>
             </div>
             <div class="header-socials">
-                <a href="https://www.linkedin.com/company/cadfem-india/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/cadfem.in" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/cadfem.india/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@CADFEMIndia" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <div class="hero">
-            <nav class="breadcrumbs"><a href="#">Home</a> | <a href="#">Article</a></nav>
+    <div class="main-wrapper">
+        <section class="hero-area">
+            <nav class="breadcrumbs">Home | Article</nav>
             <h1>Engineering Efficient Airflow with Simulation: Structural, Optimization & Acoustic Insights for Ceiling Fan Design</h1>
             <div class="post-meta">
                 <span><i class="fas fa-user"></i> Mangesh Shahji Gavade</span>
                 <span><i class="fas fa-stopwatch"></i> 06:30 MINS</span>
-                <span><i class="far fa-calendar-alt"></i> January 23, 2026</span>
+                <span><i class="far fa-calendar-alt"></i> Jan 23, 2026</span>
             </div>
-            <div class="share-buttons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
+        </section>
 
-        <div class="layout">
-            <article class="content">
+        <div class="content-grid">
+            <!-- MAIN ARTICLE -->
+            <article class="main-article">
                 <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/FBU_Ceiling-Fan-Part-2-Banner-1024x416.jpg" class="banner-img">
                 
-                <p>In <em><a href="#">Part 1</a></em> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction and IS 374-compliant performance assessment for ceiling fans — helping engineers optimize designs for better energy efficiency and air delivery without costly physical prototyping.</p>
-                <p>In <em>Part 2</em> below, we dive deeper into fluid-structure interactions, blade optimization, acoustics, and simulation automation to complete the digital design workflow.</p>
+                <p>In <em>Part 1</em> of this blog series, we explored how Ceiling fan airflow simulation using Ansys Fluent enables accurate airflow prediction...</p>
 
-                <h3 id="fsi">Fluid–Structure Interaction (FSI) Analysis of Ceiling Fan Blades</h3>
-                <p>During operation, ceiling fan blades are not only subjected to aerodynamic loads but also to <b>self-weight and centrifugal forces.</b> If blade design lacks structural capacity, these loads can cause <b>undesired deformation or failure.</b></p>
-                
-                <div class="media-box">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125005-1024x380.png">
-                    <p class="caption">Fig 1: Ansys Workbench platform for System coupling of fluent & Mechanical Solver</p>
+                <h3 id="fsi">Fluid–Structure Interaction (FSI)</h3>
+                <p>Under fluid loading, blades deform — changing their shape and, consequently, the airflow patterns they generate...</p>
+
+                <div class="media-container">
+                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125005-1024x380.png" class="fig-img">
+                    <p class="caption">Fig 1: Ansys Workbench platform for System coupling</p>
                 </div>
 
-                <div class="media-box">
-                    <video muted autoplay loop playsinline>
+                <div class="media-container">
+                    <video muted autoplay loop playsinline class="sim-video">
                         <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/struc_croped.mp4" type="video/mp4">
                     </video>
-                    <p class="caption">Video 1: Results of blade deflection calculated from Mechanical Solver</p>
+                    <p class="caption">Video 1: Results of blade deflection</p>
                 </div>
 
-                <h3 id="gradient">Shape Morphing Using Gradient-Based Optimization</h3>
-                <p>A <b>gradient-based solver,</b> typically using an <b>adjoint method,</b> computes the sensitivity of performance metrics (such as torque or drag) relative to geometric changes.</p>
+                <h3>Shape Morphing</h3>
+                <p>A gradient-based solver computes the sensitivity of performance metrics relative to geometric changes...</p>
 
-                <div class="media-grid">
-                    <div class="media-box">
-                        <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-22-163600.png">
-                        <p class="caption">Figure 2: Shape morphing : baseline geometry in grey & morphed geometry in green</p>
-                    </div>
-                    <div class="media-box">
-                        <video muted autoplay loop playsinline>
-                            <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_fan_surf1.mp4" type="video/mp4">
-                        </video>
-                        <p class="caption">Video 2: Shape morphing animation</p>
-                    </div>
-                </div>
-
-                <div class="media-box">
-                    <img src="https://blog.cadfem.ai/wp-content/uploads/2026/01/Screenshot-2026-01-28-125057.png">
-                    <p class="caption">Fig 3: Graph indicating the decrease in torque for every new optimized shape</p>
-                </div>
-
-                <h3 id="acoustics">Acoustics analysis of Ceiling fan</h3>
-                <div class="media-box">
-                    <video muted autoplay loop playsinline>
-                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/vel_scale_resolving.mp4" type="video/mp4">
+                <div class="media-container">
+                    <video muted autoplay loop playsinline class="sim-video">
+                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_fan_surf1.mp4" type="video/mp4">
                     </video>
-                    <p class="caption">Video 3: Animation of Scale Resolving simulation indicating flow dynamics</p>
+                    <p class="caption">Video 2: Shape morphing animation</p>
                 </div>
-
-                <div class="media-box">
-                    <video muted autoplay loop playsinline>
-                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/01/anim_dp_dt_1-1.mp4" type="video/mp4">
-                    </video>
-                    <p class="caption">Video 4: Acoustic Wave Propagation indicated by dp/dt contours</p>
-                </div>
-
-                <h3 id="automation">IS 374 Air Delivery Testing Automation</h3>
-                <div class="media-box">
-                    <video muted autoplay loop playsinline>
-                        <source src="https://blog.cadfem.ai/wp-content/uploads/2026/02/CADFEM-India_s-Video-Jan-29-2026.mp4#t=44,158" type="video/mp4">
-                    </video>
-                    <p class="caption">Video 5: PyFluent Automation of Ceiling fan IS374 test video</p>
-                </div>
-
-                <h3>Conclusion</h3>
-                <p>Designing an efficient and reliable ceiling fan requires more than optimizing airflow alone. Advanced Ansys simulation techniques enable a holistic, physics-based approach to ceiling fan design.</p>
             </article>
 
+            <!-- SIDEBAR -->
             <aside class="sidebar">
-                <div class="sidebar-card">
-                    <h4>Content Preview</h4>
-                    <ul>
-                        <li><a href="#fsi">1. Fluid-Structure Interaction</a></li>
-                        <li><a href="#gradient">2. Shape Morphing</a></li>
-                        <li><a href="#acoustics">3. Acoustics Analysis</a></li>
-                        <li><a href="#automation">4. Automation (PyFluent)</a></li>
-                    </ul>
+                <div class="sticky-sidebar">
+                    <div class="widget">
+                        <h4>Content Preview</h4>
+                        <ul class="toc-links">
+                            <li><a href="#fsi">1. Fluid-Structure Interaction</a></li>
+                            <li><a href="#">2. Shape Morphing</a></li>
+                            <li><a href="#">3. Acoustics Analysis</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h4>Related Blogs</h4>
+                        <div class="related-post">
+                            <img src="https://via.placeholder.com/80x50">
+                            <p>How to Reduce Drone Noise</p>
+                        </div>
+                    </div>
                 </div>
             </aside>
         </div>
-    </main>
+    </div>
 
     <footer class="site-footer">
         <p>© Copyright 2026 by CADFEM APAC</p>
